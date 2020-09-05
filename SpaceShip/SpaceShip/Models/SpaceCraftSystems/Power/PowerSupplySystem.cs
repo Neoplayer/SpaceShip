@@ -7,8 +7,8 @@ namespace SpaceShip.Models.SpaceCraftSystems.Power
 {
     class PowerSupplySystem
     {
-        public List<Reactor> Reactors = new List<Reactor>();
-        private List<Battery> Batteries = new List<Battery>();
+        public List<ReactorBase> Reactors = new List<ReactorBase>();
+        private List<BatteryBase> Batteries = new List<BatteryBase>();
 
 
         public bool CheckBatteries(uint V)
@@ -32,7 +32,7 @@ namespace SpaceShip.Models.SpaceCraftSystems.Power
 
                 var inBattery = battery.CurrentV;
 
-                if (inBattary >= requiredQuantity)
+                if (inBattery >= requiredQuantity)
                 {
                     battery.Uncharge(requiredQuantity);
                 }

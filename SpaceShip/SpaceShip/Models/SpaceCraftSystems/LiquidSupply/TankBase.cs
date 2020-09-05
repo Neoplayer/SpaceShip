@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SpaceShip.Models.SpaceCraftSystems
 {
-    class Tank<T>
+    class TankBase<T>
     {
         public int Id { get; set; }
         public T Type { get; set; }

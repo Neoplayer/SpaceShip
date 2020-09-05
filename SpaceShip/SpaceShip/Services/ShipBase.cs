@@ -14,27 +14,56 @@ namespace SpaceShip.Services
 {
     class ShipBase : IShip
     {
-        private List<Human> Personal = new List<Human>();
-        private List<Сabin> Cabins = new List<Сabin>();
-        private List<O2Gen> O2Gens = new List<O2Gen>();
-        private List<ClimateControl> ClimateControls = new List<ClimateControl>();
-        private List<RocketEngine> RocketEngines = new List<RocketEngine>();
-        private List<WarpCore> WarpCores = new List<WarpCore>();
+        #region State
+
+        public uint X { get; set; }
+
+        #endregion
+
+        #region Systems
+
+        private PowerSupplySystem PowerSupplySystem = new PowerSupplySystem();
         private LiquidSypplySystem LiquidSypplySystem = new LiquidSypplySystem();
 
-        public Task Idle(int Ticks)
-        {
+        private List<HumanBase> Personal = new List<HumanBase>();
+        private List<СabinBase> Cabins = new List<СabinBase>();
+        private List<O2GenBase> O2Gens = new List<O2GenBase>();
+        private List<ClimateControlBase> ClimateControls = new List<ClimateControlBase>();
+        private List<RocketEngineBase> RocketEngines = new List<RocketEngineBase>();
+        private List<WarpCoreBase> WarpCores = new List<WarpCoreBase>();
 
+        #endregion
+
+
+        public void Idle(int Ticks)
+        {
+            for (int i = 0; i < Ticks; i++)
+            {
+                Tick();
+            }
         }
 
-        public Task Move(int Ticks)
+        public void Move(int Ticks)
         {
-            
+            uint thrustPower = 0;
+
+            foreach (var engine in RocketEngines)
+            {
+                if(PowerSupplySystem.CheckBatteries(engine.VToThrust) && LiquidSypplySystem.CheckTanks(engine.FuelType, engine.HToThrust))
+                {
+                    if(PowerSupplySystem.UnchargeBatteries(engine.ThrustPower) && LiquidSypplySystem.PipeLuquidFromTanks(engine.FuelType, engine.HToThrust))
+                    {
+                        thrustPower += engine.ThrustPower;
+                    }
+                }
+            }
+
+            X += thrustPower;
         }
 
-        public Task WarpJump(int Power)
+        public void WarpJump(int Power)
         {
-            
+            // TODO implement
         }
 
         private void Tick()
@@ -44,12 +73,11 @@ namespace SpaceShip.Services
 
         private void ReactorsGenTick()
         {
-
-            foreach(var reactor in Reactors)
+            foreach(var reactor in PowerSupplySystem.Reactors)
             {
-                if (LiquidSypplySystem.PipeLiquidFromTanks(LiquidType.Oil, reactor.OilRec))
+                if (LiquidSypplySystem.PipeLuquidFromTanks(LiquidType.Oil, reactor.OilRec))
                 {
-                    var battary = Battaries.
+                    var battary = PowerSupplySystem.ChargeBatteries(reactor.PowerOut);
                 }
             }
         }

@@ -7,8 +7,8 @@ namespace SpaceShip.Services
 {
     interface IShip
     {
-        Task Move(int Ticks);
-        Task Idle(int Ticks);
-        Task WarpJump(int Power);
+        void Move(int Ticks);
+        void Idle(int Ticks);
+        void WarpJump(int Power);
     }
 }

@@ -7,7 +7,7 @@ namespace SpaceShip.Models.SpaceCraftSystems.LiquidSupply
 {
     class LiquidSypplySystem
     {
-        private List<Tank<LiquidType>> Tanks = new List<Tank<LiquidType>>();
+        private List<TankBase<LiquidType>> Tanks = new List<TankBase<LiquidType>>();
 
 
         public bool CheckTanks(LiquidType type, uint vol)

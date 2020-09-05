@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SpaceShip.Models.SpaceCraftSystems.Movement
+namespace SpaceShip.Models.SpaceCraftSystems.LifeSupport
 {
-    class RocketEngine
+    class O2GenBase
     {
         public int Id { get; set; }
     }

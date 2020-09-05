@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SpaceShip.Models.SpaceCraftSystems.Power
 {
-    class Battery
+    class BatteryBase
     {
         public int Id { get; set; }
         public uint MaxV { get; set; }

@@ -6,5 +6,11 @@ namespace SpaceShip.Services
 {
     class SimpleSpaceShip : ShipBase
     {
+        public SimpleSpaceShip()
+        {
+
+        }
+
+
     }
 }

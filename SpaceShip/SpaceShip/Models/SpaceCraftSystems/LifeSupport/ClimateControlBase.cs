@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SpaceShip.Models.SpaceCraftSystems.Personal
+namespace SpaceShip.Models.SpaceCraftSystems.LifeSupport
 {
-    class Сabin
+    class ClimateControlBase
     {
         public int Id { get; set; }
     }
