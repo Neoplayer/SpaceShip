@@ -8,7 +8,7 @@ namespace SpaceShip.Models.SpaceCraftSystems.Power
     class PowerSupplySystem
     {
         public List<ReactorBase> Reactors = new List<ReactorBase>();
-        private List<BatteryBase> Batteries = new List<BatteryBase>();
+        public List<BatteryBase> Batteries = new List<BatteryBase>();
 
 
         public bool CheckBatteries(uint V)

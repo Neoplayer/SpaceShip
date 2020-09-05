@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpaceShip.Services
+namespace SpaceShip.Models
 {
     interface IShip
     {

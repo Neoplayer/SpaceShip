@@ -7,7 +7,7 @@ namespace SpaceShip.Models.SpaceCraftSystems.LiquidSupply
 {
     class LiquidSypplySystem
     {
-        private List<TankBase<LiquidType>> Tanks = new List<TankBase<LiquidType>>();
+        public List<TankBase<LiquidType>> Tanks = new List<TankBase<LiquidType>>();
 
 
         public bool CheckTanks(LiquidType type, uint vol)
@@ -50,7 +50,8 @@ namespace SpaceShip.Models.SpaceCraftSystems.LiquidSupply
             return false; // TODO implement
         }
     }
-    enum LiquidType
+
+    public enum LiquidType
     {
         Water,
         Hydrogenium,

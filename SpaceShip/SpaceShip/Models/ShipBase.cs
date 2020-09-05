@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpaceShip.Services
+namespace SpaceShip.Models
 {
     class ShipBase : IShip
     {
@@ -22,15 +22,15 @@ namespace SpaceShip.Services
 
         #region Systems
 
-        private PowerSupplySystem PowerSupplySystem = new PowerSupplySystem();
-        private LiquidSypplySystem LiquidSypplySystem = new LiquidSypplySystem();
+        protected PowerSupplySystem PowerSupplySystem;
+        protected LiquidSypplySystem LiquidSypplySystem;
 
-        private List<HumanBase> Personal = new List<HumanBase>();
-        private List<СabinBase> Cabins = new List<СabinBase>();
-        private List<O2GenBase> O2Gens = new List<O2GenBase>();
-        private List<ClimateControlBase> ClimateControls = new List<ClimateControlBase>();
-        private List<RocketEngineBase> RocketEngines = new List<RocketEngineBase>();
-        private List<WarpCoreBase> WarpCores = new List<WarpCoreBase>();
+        protected List<HumanBase> Personal;
+        protected List<СabinBase> Cabins;
+        protected List<O2GenBase> O2Gens;
+        protected List<ClimateControlBase> ClimateControls;
+        protected List<RocketEngineBase> RocketEngines;
+        protected List<WarpCoreBase> WarpCores;
 
         #endregion
 

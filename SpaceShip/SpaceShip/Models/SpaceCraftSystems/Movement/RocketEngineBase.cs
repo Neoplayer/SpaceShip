@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SpaceShip.Models.SpaceCraftSystems.Movement
 {
-    class RocketEngineBase
+    public class RocketEngineBase
     {
         public int Id { get; set; }
 

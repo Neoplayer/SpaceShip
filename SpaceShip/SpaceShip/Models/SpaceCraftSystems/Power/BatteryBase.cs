@@ -4,13 +4,18 @@ using System.Text;
 
 namespace SpaceShip.Models.SpaceCraftSystems.Power
 {
-    class BatteryBase
+    public class BatteryBase
     {
         public int Id { get; set; }
         public uint MaxV { get; set; }
 
         public uint CurrentV { get; set; }
 
+        public BatteryBase(uint v)
+        {
+            CurrentV = v;
+        }
+        
         public bool Uncharge(uint V)
         {
             if (CurrentV >= V)
