@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace SpaceShip.Models
 {
-    class ShipBase : IShip
+    public class ShipBase : IShip
     {
         #region State
 

@@ -12,8 +12,23 @@ using SpaceShip.Models.SpaceCraftSystems.Power.Entity;
 
 namespace SpaceShip.Services
 {
-    class SimpleSpaceShip : ShipBase
+    public class SimpleSpaceShip : ShipBase
     {
+        //private static SimpleSpaceShip _ship;
+
+        // #region Singleton
+        //
+        // public static SimpleSpaceShip Instance()
+        // {
+        //     if (_ship != null) return _ship;
+        //     
+        //     _ship = new SimpleSpaceShip();
+        //     return _ship;
+        // }
+        //    
+        // #endregion
+        
+        
         public SimpleSpaceShip()
         {
             PowerSupplySystem = new PowerSupplySystem()

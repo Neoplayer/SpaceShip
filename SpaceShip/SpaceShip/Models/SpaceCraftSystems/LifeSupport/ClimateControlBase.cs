@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SpaceShip.Models.SpaceCraftSystems.LifeSupport
 {
-    class ClimateControlBase
+    public class ClimateControlBase
     {
         public int Id { get; set; }
     }

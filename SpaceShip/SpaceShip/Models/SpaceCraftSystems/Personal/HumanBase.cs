@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SpaceShip.Models.SpaceCraftSystems.Personal
 {
-    class HumanBase
+    public class HumanBase
     {
         public int Id { get; set; }
     }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SpaceShip.Models.SpaceCraftSystems.Power
 {
-    class PowerSupplySystem
+    public class PowerSupplySystem
     {
         public List<ReactorBase> Reactors = new List<ReactorBase>();
         public List<BatteryBase> Batteries = new List<BatteryBase>();

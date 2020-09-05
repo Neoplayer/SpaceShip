@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SpaceShip.Models.SpaceCraftSystems.Movement
 {
-    class WarpCoreBase
+    public class WarpCoreBase
     {
         public int Id { get; set; }
     }

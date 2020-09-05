@@ -13,7 +13,7 @@ namespace SpaceShip
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            DependencyService.Register<SimpleSpaceShip>();
             MainPage = new AppShell();
         }
 

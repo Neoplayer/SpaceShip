@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SpaceShip.Models.SpaceCraftSystems.LiquidSupply
 {
-    class LiquidSypplySystem
+    public class LiquidSypplySystem
     {
         public List<TankBase<LiquidType>> Tanks = new List<TankBase<LiquidType>>();
 
