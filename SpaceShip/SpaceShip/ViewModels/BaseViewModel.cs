@@ -7,13 +7,34 @@ using Xamarin.Forms;
 
 using SpaceShip.Models;
 using SpaceShip.Services;
+using SpaceShip.Models.SpaceCraftSystems;
 
 namespace SpaceShip.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public ShipBase Ship => DependencyService.Get<ShipBase>();
-        //public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public BaseViewModel()
+        {
+            Ship = DependencyService.Get<ShipBase>();
+        }
+
+        public ShipBase Ship;
+
+        public ShipStatusInfo ShipStatusInfo
+        { 
+            get
+            {
+                return new ShipStatusInfo()
+                {
+                    EnergyInfo = Ship.PowerSupplySystem.Status(),
+                    LiquidInfo = Ship.LiquidSupplySystem.Status()
+                };
+            }
+            set
+            {
+
+            } 
+        }
 
         bool isBusy = false;
         public bool IsBusy

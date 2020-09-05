@@ -80,5 +80,9 @@ namespace SpaceShip.Models.SpaceCraftSystems.Power
             return Batteries.Exists(x => x.CurrentV < x.MaxV);
         }
 
+        public (uint currnet, uint max) Status()
+        {
+            return ((uint)Batteries.Sum(x => x.CurrentV), (uint)Batteries.Sum(x => x.MaxV));
+        }
     }
 }

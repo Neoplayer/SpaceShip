@@ -5,9 +5,10 @@ using SpaceShip.Models.SpaceCraftSystems.LiquidSupply;
 
 namespace SpaceShip.Models.SpaceCraftSystems
 {
-    public class TankBase<T>
+    public class TankBase<T> : IModule
     {
         public int Id { get; set; }
+        public String Name { get; set; }
         public T Type { get; set; }
         public uint MaxVolume { get; set; }
 
@@ -30,6 +31,11 @@ namespace SpaceShip.Models.SpaceCraftSystems
             {
                 return false;
             }
+        }
+
+        public string GetModuleInfo()
+        {
+            return $"Type: {Type.ToString()}\nCurrentVolume: {CurrentVolume}\nMaxVolume: {MaxVolume}";
         }
     }
 }

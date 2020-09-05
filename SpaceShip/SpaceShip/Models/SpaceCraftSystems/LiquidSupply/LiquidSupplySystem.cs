@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SpaceShip.Models.SpaceCraftSystems.LiquidSupply
 {
-    public class LiquidSypplySystem
+    public class LiquidSupplySystem
     {
         public List<TankBase<LiquidType>> Tanks = new List<TankBase<LiquidType>>();
 
@@ -50,18 +50,25 @@ namespace SpaceShip.Models.SpaceCraftSystems.LiquidSupply
             return false; // TODO implement
         }
 
-        public string Status
+        public Dictionary<LiquidType, (uint current, uint max)> Status()
         {
-            get
+            var dictionary = new Dictionary<LiquidType, (uint currnet, uint max)>()
             {
-                return $"Water : {Tanks.Where(x => x.Type == LiquidType.Water).Sum(x => x.CurrentVolume)}/{Tanks.Where(x => x.Type == LiquidType.Water).Sum(x => x.MaxVolume)}\n"
-                       + $"Hydrogenium : {Tanks.Where(x => x.Type == LiquidType.Hydrogenium).Sum(x => x.CurrentVolume)}/{Tanks.Where(x => x.Type == LiquidType.Hydrogenium).Sum(x => x.MaxVolume)}\n"
-                       + $"Oil : {Tanks.Where(x => x.Type == LiquidType.Oil).Sum(x => x.CurrentVolume)}/{Tanks.Where(x => x.Type == LiquidType.Oil).Sum(x => x.MaxVolume)}";
-            }
-            set
-            {
-                
-            }
+                {
+                    LiquidType.Water, ((uint) Tanks.Where(x => x.Type == LiquidType.Water).Sum(x => x.CurrentVolume),
+                    (uint) Tanks.Where(x => x.Type == LiquidType.Water).Sum(x => x.MaxVolume))
+                },
+                {
+                    LiquidType.Hydrogenium, ((uint) Tanks.Where(x => x.Type == LiquidType.Hydrogenium).Sum(x => x.CurrentVolume),
+                        (uint) Tanks.Where(x => x.Type == LiquidType.Hydrogenium).Sum(x => x.MaxVolume))
+                },
+                {
+                    LiquidType.Oil, ((uint) Tanks.Where(x => x.Type == LiquidType.Oil).Sum(x => x.CurrentVolume),
+                        (uint) Tanks.Where(x => x.Type == LiquidType.Oil).Sum(x => x.MaxVolume))
+                }
+            };
+
+            return dictionary;
         }
     }
 

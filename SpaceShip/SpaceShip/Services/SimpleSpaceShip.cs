@@ -36,7 +36,7 @@ namespace SpaceShip.Services
                 Reactors = new List<ReactorBase> { new SmallReactor()},
                 Batteries = new List<BatteryBase> { new SmallBattery(250), new SmallBattery(250)}
             };
-            LiquidSypplySystem = new LiquidSypplySystem
+            LiquidSupplySystem = new LiquidSupplySystem
             {
                 Tanks = new List<TankBase<LiquidType>>
                 {

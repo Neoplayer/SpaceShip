@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SpaceShip.Models.SpaceCraftSystems.Power
 {
-    public class BatteryBase
+    public class BatteryBase : IModule
     {
         public int Id { get; set; }
         public uint MaxV { get; set; }
@@ -38,6 +38,11 @@ namespace SpaceShip.Models.SpaceCraftSystems.Power
             {
                 CurrentV = MaxV;
             }
+        }
+
+        public string GetModuleInfo()
+        {
+            return $"Current V: {CurrentV}\nMax V: {MaxV}";
         }
     }
 }

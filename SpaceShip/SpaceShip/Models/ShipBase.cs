@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace SpaceShip.Models
 {
@@ -22,8 +23,8 @@ namespace SpaceShip.Models
 
         #region Systems
 
-        protected PowerSupplySystem PowerSupplySystem;
-        protected LiquidSypplySystem LiquidSypplySystem;
+        public PowerSupplySystem PowerSupplySystem { get; set; } // TODO incapsulate
+        public LiquidSupplySystem LiquidSupplySystem { get; set; } // TODO incapsulate
 
         protected List<HumanBase> Personal;
         protected List<СabinBase> Cabins;
@@ -33,7 +34,6 @@ namespace SpaceShip.Models
         protected List<WarpCoreBase> WarpCores;
 
         #endregion
-
 
         public void Idle(int Ticks)
         {
@@ -49,9 +49,9 @@ namespace SpaceShip.Models
 
             foreach (var engine in RocketEngines)
             {
-                if(PowerSupplySystem.CheckBatteries(engine.VToThrust) && LiquidSypplySystem.CheckTanks(engine.FuelType, engine.HToThrust))
+                if(PowerSupplySystem.CheckBatteries(engine.VToThrust) && LiquidSupplySystem.CheckTanks(engine.FuelType, engine.HToThrust))
                 {
-                    if(PowerSupplySystem.UnchargeBatteries(engine.ThrustPower) && LiquidSypplySystem.PipeLuquidFromTanks(engine.FuelType, engine.HToThrust))
+                    if(PowerSupplySystem.UnchargeBatteries(engine.ThrustPower) && LiquidSupplySystem.PipeLuquidFromTanks(engine.FuelType, engine.HToThrust))
                     {
                         thrustPower += engine.ThrustPower;
                     }
@@ -75,9 +75,9 @@ namespace SpaceShip.Models
         {
             foreach(var reactor in PowerSupplySystem.Reactors)
             {
-                if (LiquidSypplySystem.PipeLuquidFromTanks(LiquidType.Oil, reactor.OilRec))
+                if (LiquidSupplySystem.PipeLuquidFromTanks(LiquidType.Oil, reactor.OilRec))
                 {
-                    var battary = PowerSupplySystem.ChargeBatteries(reactor.PowerOut);
+                    PowerSupplySystem.ChargeBatteries(reactor.PowerOut);
                 }
             }
         }
