@@ -49,6 +49,20 @@ namespace SpaceShip.Models.SpaceCraftSystems.LiquidSupply
         {
             return false; // TODO implement
         }
+
+        public string Status
+        {
+            get
+            {
+                return $"Water : {Tanks.Where(x => x.Type == LiquidType.Water).Sum(x => x.CurrentVolume)}/{Tanks.Where(x => x.Type == LiquidType.Water).Sum(x => x.MaxVolume)}\n"
+                       + $"Hydrogenium : {Tanks.Where(x => x.Type == LiquidType.Hydrogenium).Sum(x => x.CurrentVolume)}/{Tanks.Where(x => x.Type == LiquidType.Hydrogenium).Sum(x => x.MaxVolume)}\n"
+                       + $"Oil : {Tanks.Where(x => x.Type == LiquidType.Oil).Sum(x => x.CurrentVolume)}/{Tanks.Where(x => x.Type == LiquidType.Oil).Sum(x => x.MaxVolume)}";
+            }
+            set
+            {
+                
+            }
+        }
     }
 
     public enum LiquidType
